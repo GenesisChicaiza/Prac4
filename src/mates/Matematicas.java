@@ -30,8 +30,15 @@ public class Matematicas{
                     mat[i][j] = mat[i - 1][j - 1]; 
                 } else {
                     mat[i][j] = 1 + Math.min(mat[i - 1][j - 1], Math.min(mat[i][j - 1], mat[i - 1][j]));
-                    
+                    mat[i][j] = Math.min(mat[i][j],2 + mat[i-1][j-1]);
                 }
+                //insetar
+                //borrar
+                //editar
+               
+                //add - 1
+                //del -1
+                //edit - add y del -2
             }
         }
 
