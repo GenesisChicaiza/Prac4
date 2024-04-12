@@ -11,39 +11,34 @@ public class Matematicas{
      * @param: Calcula la distancia de edición entre dos cadenas s1 y s2
      * @return: distancia entre las cadenas
      */
-    public static int distance(String s1, String s2) {
+    public static int distance(String let1, String let2) {
         // matriz 
-        int[][] mat = new int[s1.length() + 1][s2.length() + 1];
+        int[][] distance = new int[let1.length() + 1][let2.length() + 1];
 
         // fila / columna de matriz
-        for (int i = 0; i <= s1.length(); i++) {
-            mat[i][0] = i;
+        for (int i = 0; i <= let1.length(); i++) {
+            distance[i][0] = i;
         }
-        for (int j = 0; j <= s2.length(); j++) {
-            mat[0][j] = j;
+        for (int j = 0; j <= let2.length(); j++) {
+            distance[0][j] = j;
         }
 
         // algoritmo de programación dinámica
-        for (int i = 1; i <= s1.length(); i++) {
-            for (int j = 1; j <= s2.length(); j++) {
-                if (s1.charAt(i - 1) == s2.charAt(j - 1)) {
-                    mat[i][j] = mat[i - 1][j - 1]; 
+        for (int i = 1; i <= let1.length(); i++) {
+            for (int j = 1; j <= let2.length(); j++) {
+                if (let1.charAt(i - 1) == let2.charAt(j - 1)) {
+                    distance[i][j] = distance[i - 1][j - 1]; 
                 } else {
-                    mat[i][j] = 1 + Math.min(mat[i - 1][j - 1], Math.min(mat[i][j - 1], mat[i - 1][j]));
-                    mat[i][j] = Math.min(mat[i][j],2 + mat[i-1][j-1]);
+                    distance[i][j] = Math.min(distance[i][j - 1] + 1, // add
+                    Math.min(distance[i - 1][j] + 1, // delete
+                            distance[i - 1][j - 1] + 1)); // edit
                 }
-                //insetar
-                //borrar
-                //editar
-               
-                //add - 1
-                //del -1
-                //edit - add y del -2
+
             }
         }
 
        //donde se encuentra la distancia en la matriz 
-        return mat[s1.length()][s2.length()];
+        return distance[let1.length()][let2.length()];
     }
 
 }
