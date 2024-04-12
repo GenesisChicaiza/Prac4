@@ -9,8 +9,8 @@ import mates.*;
     public class Principal {
         public static void main(String[] args) {
             // probando
-            String s1 = "terror";
-            String s2 = "error";
-            System.out.println("Distancia de edición entre '" + s1 + "' y '" + s2 + "': " + Matematicas.distance(s1, s2));
+            String let1 = "terror";
+            String let2 = "error";
+            System.out.println("Distancia de edición entre '" + let1 + "' y '" + let2 + "': " + Matematicas.distance(let1, let2));
         }
     }

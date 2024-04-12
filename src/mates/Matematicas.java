@@ -8,7 +8,7 @@ package mates;
 
 public class Matematicas{
       /**
-     * @param: Calcula la distancia de edición entre dos cadenas s1 y s2
+     * @param: Calcula la distancia entre dos cadenas let1 y let2
      * @return: distancia entre las cadenas
      */
     public static int distance(String let1, String let2) {
@@ -23,7 +23,7 @@ public class Matematicas{
             distance[0][j] = j;
         }
 
-        // algoritmo de programación dinámica
+        
         for (int i = 1; i <= let1.length(); i++) {
             for (int j = 1; j <= let2.length(); j++) {
                 if (let1.charAt(i - 1) == let2.charAt(j - 1)) {
@@ -31,7 +31,7 @@ public class Matematicas{
                 } else {
                     distance[i][j] = Math.min(distance[i][j - 1] + 1, // add
                     Math.min(distance[i - 1][j] + 1, // delete
-                            distance[i - 1][j - 1] + 1)); // edit
+                            distance[i - 1][j - 1] + 2)); // edit
                 }
 
             }
